@@ -4,7 +4,7 @@ services:
     image: web_api
     container_name: web_api_application
     ports:
-      - "5000:80"
+      - "8000:8000"
   # sql:
   #   image: "mcr.microsoft.com/mssql/server:2019-latest"
   #   container_name: sql_server2022
