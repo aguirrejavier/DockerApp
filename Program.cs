@@ -20,6 +20,7 @@ using(var scope = app.Services.CreateScope())
 {
     var salesContext = scope.ServiceProvider.GetRequiredService<SalesContext>();
     salesContext.Database.EnsureCreated();
+
     salesContext.Seed();
 }
 
