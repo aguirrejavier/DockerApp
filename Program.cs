@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<SalesContext>(options =>
     options.UseNpgsql($"Server = {Environment.GetEnvironmentVariable("DB_HOST")};" +
-    $"Database = {Environment.GetEnvironmentVariable("DB_NAME")};" +
+    $" Port = {Environment.GetEnvironmentVariable("DB_PORT")}; Database = {Environment.GetEnvironmentVariable("DB_NAME")};" +
     $" User Id = {Environment.GetEnvironmentVariable("DB_USER")}; Password = {Environment.GetEnvironmentVariable("DB_PASSWORD")}"));
 
 var app = builder.Build();
