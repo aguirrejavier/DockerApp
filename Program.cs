@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.EntityFrameworkCore;
 using WebApiEntityFrameworkDockerSqlServer.Data;
 
@@ -8,7 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddDbContext<SalesContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("PglSalesDb")));
+    options.UseNpgsql($"Server = {Environment.GetEnvironmentVariable("DB_HOST")};" +
+    $" Port = {Environment.GetEnvironmentVariable("DB_PORT")}; Database = {Environment.GetEnvironmentVariable("DB_NAME")};" +
+    $" User Id = {Environment.GetEnvironmentVariable("DB_USER")}; Password = {Environment.GetEnvironmentVariable("DB_PASSWORD")}"));
 
 var app = builder.Build();
 
