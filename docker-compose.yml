@@ -1,10 +1,10 @@
 version: "3.9" # optional since v1.27.0
 services:
   web_api:
-    image: web_api
+    image: web2api
     container_name: web_api_application
     ports:
-      - "8000:8000"
+      - "5000:80"
   # sql:
   #   image: "mcr.microsoft.com/mssql/server:2019-latest"
   #   container_name: sql_server2022
@@ -16,6 +16,7 @@ services:
   #     - SA_PASSWORD=A&VeryComplex123Password
   postgres:
     image: postgres:14.3-alpine3.16
+    container_name: pgl2023
     ports:
       - "5431:5432"
     volumes:
@@ -23,4 +24,4 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=postgres
+       - POSTGRES_DB=postgres
