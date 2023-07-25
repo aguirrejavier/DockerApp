@@ -8,14 +8,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-//builder.Services.AddDbContext<SalesContext>(options =>
-//    options.UseNpgsql($"Server = {Environment.GetEnvironmentVariable("DB_HOST")};" +
-//    $" Port = {Environment.GetEnvironmentVariable("DB_PORT")}; Database = {Environment.GetEnvironmentVariable("DB_NAME")};" +
-//    $" User Id = {Environment.GetEnvironmentVariable("DB_USER")}; Password = {Environment.GetEnvironmentVariable("DB_PASSWORD")}"));
 builder.Services.AddDbContext<SalesContext>(options =>
-    options.UseSqlServer($"Server = ProductsDbEjemplo.mssql.somee.com;" +
-    $" Database = ProductsDbEjemplo;" +
-    $" User Id = carletojavier_SQLLogin_2; Password = ofjhxo9nku"));
+    options.UseNpgsql($"Server = {Environment.GetEnvironmentVariable("DB_HOST")};" +
+    $" Port = {Environment.GetEnvironmentVariable("DB_PORT")}; Database = {Environment.GetEnvironmentVariable("DB_NAME")};" +
+    $" User Id = {Environment.GetEnvironmentVariable("DB_USER")}; Password = {Environment.GetEnvironmentVariable("DB_PASSWORD")}"));
+//builder.Services.AddDbContext<SalesContext>(options =>
+//    options.UseSqlServer($"Server = ProductsDbEjemplo.mssql.somee.com;" +
+//    $" Database = ProductsDbEjemplo;" +
+//    $" User Id = carletojavier_SQLLogin_2; Password = ofjhxo9nku"));
 
 //builder.Services.AddDbContext<SalesContext>(options =>
 //    options.UseNpgsql(builder.Configuration.GetConnectionString("PglSalesDb")));
